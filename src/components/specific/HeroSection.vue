@@ -11,7 +11,7 @@
           {{ slide.title }}
         </h1>
         <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
-          Get Started
+          MYDIGITAL
         </button>
       </div>
     </div>
@@ -20,9 +20,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import hero1 from '@/assets/images/landingPage/hero1.png';
-import hero2 from '@/assets/images/landingPage/hero2.png';
-import hero3 from '@/assets/images/landingPage/hero3.png';
+import hero1 from '@/images/landingPage/hero1.png';
+import hero2 from '@/images/landingPage/hero2.jpg';
+import hero3 from '@/images/landingPage/hero3.png';
 
 const slides = ref([
   { image: hero1, title: 'Connect Your Business to the Cloud' },
@@ -36,7 +36,7 @@ let slideInterval;
 onMounted(() => {
   slideInterval = setInterval(() => {
     activeSlide.value = (activeSlide.value + 1) % slides.value.length;
-  }, 5000); // Change slide every 5 seconds
+  }, 5000);
 });
 
 onUnmounted(() => {
