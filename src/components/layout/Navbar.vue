@@ -1,21 +1,21 @@
 <template>
-  <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+  <nav :class="{'bg-[#47425d] shadow-lg': scrolled, 'bg-transparent': !scrolled}" class="fixed w-full top-0 z-50 transition-colors duration-300">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center">
           <a href="#">
-            <img src="../../images/logo.png" alt="Cloud Connect" class="h-8 mr-4">
+            <img src="../../images/landingPage/logo.png" alt="Cloud Connect" class="h-8 mr-4">
           </a>
         </div>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#" class="text-gray-700 hover:text-blue-500">Home</a>
-          <a href="#" class="text-gray-700 hover:text-blue-500">MyDIGITAL</a>
+          <router-link to="/" class="text-white hover:text-accent" active-class="text-accent">Home</router-link>
+          <a href="#" class="text-white hover:text-accent">MyDIGITAL</a>
           <div
             class="relative"
             @mouseover="openSolutions"
             @mouseleave="closeSolutions"
           >
-            <a href="#" class="text-gray-700 hover:text-blue-500">Solutions</a>
+            <a href="#" class="text-white hover:text-accent">Solutions</a>
             <SolutionsDropdown v-if="solutionsOpen" @mouseover="openSolutions" @mouseleave="closeSolutions" />
           </div>
           <div
@@ -23,12 +23,12 @@
             @mouseover="openProducts"
             @mouseleave="closeProducts"
           >
-            <a href="#" class="text-gray-700 hover:text-blue-500">Products</a>
+            <router-link to="#" class="text-white hover:text-accent" active-class="text-accent">Products</router-link>
             <ProductDropdown v-if="productsOpen" @mouseover="openProducts" @mouseleave="closeProducts" />
           </div>
-          <a href="#" class="text-gray-700 hover:text-blue-500">R&D</a>
-          <a href="#" class="text-gray-700 hover:text-blue-500">About Us</a>
-          <a href="#" class="text-gray-700 hover:text-blue-500">Contact Us</a>
+          <router-link to="/rd" class="text-white hover:text-accent" active-class="text-accent">R&D</router-link>
+          <router-link to="/about" class="text-white hover:text-accent" active-class="text-accent">About Us</router-link>
+          <router-link to="/contact" class="text-white hover:text-accent" active-class="text-accent">Contact Us</router-link>
         </div>
         <div class="md:hidden flex items-center">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-blue-500 focus:outline-none">
@@ -40,13 +40,13 @@
       </div>
     </div>
     <div v-if="mobileMenuOpen" class="md:hidden">
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Home</a>
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">MyDIGITAL</a>
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Solutions</a>
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Products</a>
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">R&D</a>
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">About Us</a>
-      <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Contact Us</a>
+      <router-link to="/" class="block py-2 px-4 text-sm text-white hover:bg-gray-700 hover:text-accent" active-class="text-accent">Home</router-link>
+      <router-link to="/" class="block py-2 px-4 text-sm text-white hover:bg-accent hover:text-white" active-class="text-accent">Home</router-link>
+      <a href="#" class="block py-2 px-4 text-sm text-white hover:bg-accent hover:text-white">Solutions</a>
+      <a href="#" class="block py-2 px-4 text-sm text-white hover:bg-accent hover:text-white">Products</a>
+      <a href="#" class="block py-2 px-4 text-sm text-white hover:bg-accent hover:text-white">R&D</a>
+      <a href="#" class="block py-2 px-4 text-sm text-white hover:bg-accent hover:text-accent">About Us</a>
+      <router-link to="/contact" class="block py-2 px-4 text-sm text-white hover:bg-accent hover:text-white" active-class="text-accent">Contact Us</router-link>
     </div>
   </nav>
 </template>
@@ -59,9 +59,11 @@ import ProductDropdown from './ProductDropdown.vue'
 const solutionsOpen = ref(false)
 const productsOpen = ref(false)
 const mobileMenuOpen = ref(false)
+const scrolled = ref(false)
 
 let solutionsTimeout = null;
 let productsTimeout = null;
+
 
 const openSolutions = () => {
   clearTimeout(solutionsTimeout);

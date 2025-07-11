@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white rounded-lg shadow-md p-6 flex flex-col h-full">
-    <h3 class="text-xl font-semibold text-gray-800 mb-3">{{ title }}</h3>
+    <h3 class="text-xl font-semibold text-accent mb-3">{{ title }}</h3>
     <p class="text-gray-600 mb-4 flex-grow">{{ description }}</p>
     <router-link
       :to="link"

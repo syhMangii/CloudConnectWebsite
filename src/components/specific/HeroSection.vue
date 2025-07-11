@@ -10,7 +10,7 @@
         <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
           {{ slide.title }}
         </h1>
-        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
+        <button class="bg-accent hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
           MYDIGITAL
         </button>
       </div>

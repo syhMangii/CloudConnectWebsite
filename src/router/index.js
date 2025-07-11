@@ -8,40 +8,45 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/services/flux-big-data',
-    name: 'FluxBigData',
-    component: () => import('../views/ServiceDetailView.vue'),
-    props: { serviceName: 'flux-big-data' }
+    path: '/solutions/big-data-flux',
+    name: 'BigDataFlux',
+    component: () => import('../views/BigDataFluxView.vue')
   },
   {
-    path: '/services/usc-realtime-api',
-    name: 'UscRealtimeApi',
-    component: () => import('../views/ServiceDetailView.vue'),
-    props: { serviceName: 'usc-realtime-api' }
+    path: '/solutions/realtime-api-usc',
+    name: 'RealtimeApiUsc',
+    component: () => import('../views/RealtimeApiUscView.vue')
   },
   {
-    path: '/services/virtual-cloud-provider',
-    name: 'VirtualCloudProvider',
-    component: () => import('../views/ServiceDetailView.vue'),
-    props: { serviceName: 'virtual-cloud-provider' }
+    path: '/solutions/baku-binary-artificial-key-unit',
+    name: 'Baku',
+    component: () => import('../views/BakuView.vue')
   },
   {
-    path: '/services/iaas-paas-platform',
-    name: 'IaasPaasPlatform',
-    component: () => import('../views/ServiceDetailView.vue'),
-    props: { serviceName: 'iaas-paas-platform' }
+    path: '/solutions/siti-intelligent-customer-service',
+    name: 'Siti',
+    component: () => import('../views/SitiView.vue')
+  },
+  
+  {
+    path: '/rd',
+    name: 'RD',
+    component: () => import('../views/RDView.vue')
   },
   {
-    path: '/services/saas-onboarding',
-    name: 'SaaSOnboarding',
-    component: () => import('../views/ServiceDetailView.vue'),
-    props: { serviceName: 'saas-onboarding' }
+    path: '/ipms',
+    name: 'IPMS',
+    component: () => import('../views/IPMSView.vue')
   },
   {
-    path: '/services/saas-marketplace',
-    name: 'SaaSMarketplace',
-    component: () => import('../views/ServiceDetailView.vue'),
-    props: { serviceName: 'saas-marketplace' }
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/AboutView.vue')
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import('../views/ContactView.vue')
   }
 ]
 
